@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch Together | Futuristic Signup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4fE2R9xw1Mqu0s4Q6z6wY7M2P6wE8fVxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="faviocn.png">
+</head>
+<body>
+  <div class="bg-effect gradient-orb orb-one" aria-hidden="true"></div>
+  <div class="bg-effect gradient-orb orb-two" aria-hidden="true"></div>
+  <div class="bg-effect gradient-orb orb-three" aria-hidden="true"></div>
+  <div class="particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Page 1: Signup Landing -->
+  <main class="main-shell">
+    <section class="panel panel-active" id="landingPanel">
+      <div class="hero-content floating">
+        <p class="eyebrow">Real-time watch party</p>
+        <h1>Watch Movies Together in Real-Time</h1>
+        <p class="subtext">Create your private room and stream unforgettable moments with friends, anywhere in the world.</p>
+      </div>
+
+      <div class="glass-card signup-card">
+        <h2>Join The Experience</h2>
+        <p>Secure your early access in under a minute.</p>
+        <form id="signupForm" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your full name" required>
+          <p class="field-error" id="nameError" aria-live="polite"></p>
+
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Enter your phone number" required>
+          <p class="field-error" id="phoneError" aria-live="polite"></p>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required>
+          <p class="field-error" id="emailError" aria-live="polite"></p>
+
+          <label for="source">How did you hear about us?</label>
+          <select class="options-select" id="source" name="source" required>
+            <option value="">Select an option</option>
+            <option value="instagram">Instagram</option>
+            <option value="friend">Friend</option>
+            <option value="ads">Online Ads</option>
+            <option value="search">Search Engine</option>
+          </select>
+          <p class="field-error" id="sourceError" aria-live="polite"></p>
+
+          <button type="submit" id="submitButton" class="btn btn-primary ripple-target">Enter Experience</button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- Page 2: Subscription Offer -->
+    <section class="panel" id="offerPanel" aria-hidden="true">
+      <div class="glass-card offer-card floating">
+        <p class="eyebrow">Premium unlocked</p>
+        <h2 style="margin-top: 10px;">You've unlocked 7 Days Free Subscription 🎉</h2>
+        <p class="offer-copy">
+          You now have access to watch together for free for 7 days.
+          After 7 days, unlock <strong>1 YEAR FREE</strong> subscription by following us on Instagram.
+        </p>
+
+        <div class="social-row">
+          <span class="icon-shell" aria-hidden="true"><img src="instagram.png" alt="Instagram" style="width: 30px; height: 30px;"></span>
+          <button type="button" class="btn btn-secondary ripple-target">Follow Us</button>
+        </div>
+
+        <div class="input-wrap">
+          <label for="instagramUsername">Instagram Username</label>
+          <input id="instagramUsername" type="text" placeholder="Enter your Instagram username" autocomplete="off">
+        </div>
+
+        <a href="#" id="enterRoomButton" style="margin-top: 16px;" class="btn btn-primary btn-anchor disabled" aria-disabled="true">Enter The Room</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay hidden" id="loadingOverlay" aria-hidden="true">
+    <div class="loader-shell">
+      <span class="loader-ring"></span>
+      <p>Preparing your room...</p>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal-backdrop hidden" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-hidden="true">
+    <div class="modal-card">
+      <div class="success-icon"><img src="check.png" alt="Success" style="width: 30px; height: 30px;"></div>
+      <h3 id="successTitle">Successfully Registered!</h3>
+      <p>Your access has been activated. Continue to claim your free subscription.</p>
+      <button type="button" id="watchTogetherButton" class="btn btn-primary ripple-target">Watch Together</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("daYLIRdAzY1qg6Mpj");
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
