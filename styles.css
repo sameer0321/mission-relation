@@ -45,9 +45,10 @@ body {
 
 .panel-active {
   display: flex;
-  justify-self:center;
+  justify-self: center;
   gap: 24px;
   align-items: center;
+  flex-direction: column;
 }
 
 .hero-content {
@@ -423,23 +424,30 @@ select.input-invalid {
   background: rgba(255, 255, 255, 0.55);
   animation: ripple 0.55s ease-out forwards;
 }
-.options-select{
-    appearance: none;        /* Chrome, Safari, Edge */
-    -moz-appearance: none;   /* Firefox */
-    -webkit-appearance: none;/* Safari/Chrome */
-    background: url("data:image/svg+xml;utf8,<svg fill='white' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") 
-                no-repeat right 0.75rem center;
-    background-size: 30px;
+
+.options-select {
+  appearance: none;
+  /* Chrome, Safari, Edge */
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari/Chrome */
+  background: url("data:image/svg+xml;utf8,<svg fill='white' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 0.75rem center;
+  background-size: 30px;
 }
 
 .options-select option {
-  background-color: #222;   /* options ka background */
-  color: #fff;              /* options ka text */
+  background-color: #222;
+  /* options ka background */
+  color: #fff;
+  /* options ka text */
 }
+
 @media (min-width: 900px) {
   .panel-active {
     min-height: calc(100vh - 96px);
     gap: 34px;
+    flex-direction: row;
   }
 
   .signup-card,
@@ -469,6 +477,7 @@ select.input-invalid {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -476,9 +485,12 @@ select.input-invalid {
 }
 
 @keyframes drift {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) translateX(0) scale(1);
   }
+
   50% {
     transform: translateY(-12px) translateX(10px) scale(1.05);
   }
@@ -489,9 +501,11 @@ select.input-invalid {
     transform: translateY(0) scale(1);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   to {
     transform: translateY(-110vh) scale(0.4);
     opacity: 0;
@@ -502,9 +516,11 @@ select.input-invalid {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -515,6 +531,7 @@ select.input-invalid {
     opacity: 0;
     transform: scale(0.93) translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -528,9 +545,12 @@ select.input-invalid {
 }
 
 @keyframes floatY {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -541,6 +561,7 @@ select.input-invalid {
     opacity: 0.55;
     transform: translate(-50%, -50%) scale(1);
   }
+
   to {
     opacity: 0;
     transform: translate(-50%, -50%) scale(18);
